@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eu
+
+pox_dir=$HOME/pox
+pox_remote=http://github.com/noxrepo/pox
+r=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
+
+rm -rf $pox_dir
+git clone $pox_remote $pox_dir
+
+for f in $(ls $r/../controllers); do
+  ln -s $r/../controllers/$f $pox_dir/ext/.
+done

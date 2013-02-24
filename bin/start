@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eu
+
+if [ $# -ne 1 ]; then
+  echo "usage: start <controller name>"
+  exit 1
+fi
+
+$HOME/pox/pox.py log.level --DEBUG $1

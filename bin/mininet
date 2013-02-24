@@ -1,0 +1,23 @@
+#!/bin/bash
+set -eu
+r=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
+
+if [ $# -ne 1 ]; then
+  echo "usage: mininet <topo name>"
+  exit 1
+fi
+
+# clean up first
+sudo mn -c
+
+if [ "$1" == "simple" ]; then
+  # simple switch + 3 hosts
+  sudo mn --topo single,3 --mac --switch ovsk --controller remote
+
+elif [ "$1" == "linear" ]; then
+  # two switches, each with one host
+  sudo mn --topo linear --mac --switch ovsk --controller remote
+
+else
+  sudo mn --custom $r/../topos/$1.py --mac
+fi

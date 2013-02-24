@@ -1,17 +1,39 @@
 openflow-sandbox
 ================
 
+A sandbox for playing with openflow controllers
+written in python using pox.
+
+install system dependencies:
+```bash
+sudo apt-get install -y mininet <TODO: the rest>
+```
+
+install pox and custom topos / controllers:
+```bash
+bin/install-pox
+```
+
+start a mininet network from a topo name:
+```bash
+bin/mininet <simple|linear|subnets|...>
+```
+
+start a controller by name:
+```bash
+bin/start <switch|...>
+```
+
+show currently-configured flows:
+```bash
+bin/dp-dump
+```
 
 
-### notes
 
-#### dpctl
-show flows:  `dpctl show 127.0.0.1:6634`
-show switch: `dpctl show 127.0.0.1:6634`
-
-#### mininet
+### mininet notes
+useful commands:
 `nodes` `pingall` `iperf`
-clean up mininet: `sudo mn -c`
 
 #### reference controllers
 `controller ptcp:`
