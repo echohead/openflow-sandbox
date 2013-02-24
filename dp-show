@@ -1,0 +1,2 @@
+#!/bin/bash
+dpctl show tcp:127.0.0.1:6634
