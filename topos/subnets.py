@@ -1,34 +1,33 @@
-"""Custom topology example
-
-Two directly connected switches plus a host for each switch:
-
-   host --- switch --- switch --- host
-
-Adding the 'topos' dict with a key/value pair to generate our newly defined
-topology enables one to pass in '--topo=mytopo' from the command line.
+"""
+  h1 ---|          |     |          |--- h4
+  h2 ---| switch 1 |-----| switch 2 |--- h5
+  h3 ---|          |     |          |
 """
 
 from mininet.topo import Topo
 
-class MyTopo( Topo ):
-    "Simple topology example."
+class Subnets( Topo ):
 
     def __init__( self ):
-        "Create custom topo."
-
-        # Initialize topology
         Topo.__init__( self )
 
-        # Add hosts and switches
-        leftHost = self.addHost( 'h1' )
-        rightHost = self.addHost( 'h2' )
-        leftSwitch = self.addSwitch( 's3' )
-        rightSwitch = self.addSwitch( 's4' )
+        sw1 = self.addSwitch('s1')
+        sw2 = self.addSwitch('s2')
+        self.addLink(sw1, sw2)
 
-        # Add links
-        self.addLink( leftHost, leftSwitch )
-        self.addLink( leftSwitch, rightSwitch )
-        self.addLink( rightSwitch, rightHost )
+        h1 = self.addHost('h1')
+        self.addLink(h1, sw1)
 
+        h2 = self.addHost('h2')
+        self.addLink(h2, sw1)
 
-topos = { 'mytopo': ( lambda: MyTopo() ) }
+        h3 = self.addHost('h3')
+        self.addLink(h3, sw1)
+
+        h4 = self.addHost('h4')
+        self.addLink(h4, sw2)
+
+        h5 = self.addHost('h5')
+        self.addLink(h5, sw2)
+
+topos = { 'subnets': ( lambda: Subnets() ) }
