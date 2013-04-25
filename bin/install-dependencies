@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu
+
+sudo apt-get update
+sudo apt-get autoremove openvswitch-datapath-dkms
+
+kernel_version=`cat /proc/version | cut -d " " -f3`
+
+DEBIAN_FRONTEND=noninteractive \
+sudo apt-get install make fakeroot dkms openvswitch-switch \
+                     openvswitch-datapath-dkms linux-headers-$kernel_version
+
+sudo /etc/init.d/openvswitch-switch restart
+

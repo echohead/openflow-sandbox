@@ -6,7 +6,7 @@ written in python using pox.
 
 install system dependencies:
 ```bash
-sudo apt-get install -y mininet <TODO: the rest>
+bin/install-dependencies
 ```
 
 install pox and custom topos / controllers:
