@@ -11,23 +11,23 @@ class Subnets( Topo ):
     def __init__( self ):
         Topo.__init__( self )
 
-        sw1 = self.addSwitch('s1')
-        sw2 = self.addSwitch('s2')
-        self.addLink(sw1, sw2)
+        sw1 = self.add_switch('s1')
+        sw2 = self.add_switch('s2')
+        self.add_link(sw1, sw2)
 
-        h1 = self.addHost('h1')
-        self.addLink(h1, sw1)
+        h1 = self.add_host('h1')
+        self.add_link(h1, sw1)
 
-        h2 = self.addHost('h2')
-        self.addLink(h2, sw1)
+        h2 = self.add_host('h2')
+        self.add_link(h2, sw1)
 
-        h3 = self.addHost('h3')
-        self.addLink(h3, sw1)
+        h3 = self.add_host('h3')
+        self.add_link(h3, sw1)
 
-        h4 = self.addHost('h4')
-        self.addLink(h4, sw2)
+        h4 = self.add_host('h4')
+        self.add_link(h4, sw2)
 
-        h5 = self.addHost('h5')
-        self.addLink(h5, sw2)
+        h5 = self.add_host('h5')
+        self.add_link(h5, sw2)
 
 topos = { 'subnets': ( lambda: Subnets() ) }

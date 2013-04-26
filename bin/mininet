@@ -19,5 +19,5 @@ elif [ "$1" == "linear" ]; then
   sudo mn --topo linear --mac --switch ovsk --controller remote
 
 else
-  sudo mn --custom $r/../topos/$1.py --topo $1 --mac
+  sudo mn --custom $r/../topos/$1.py --topo $1 --mac --controller remote
 fi
