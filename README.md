@@ -4,6 +4,8 @@ openflow-sandbox
 A sandbox for playing with openflow controllers
 written in python using pox.
 
+Tested on ubuntu quantal.
+
 install system dependencies:
 ```bash
 bin/install-dependencies

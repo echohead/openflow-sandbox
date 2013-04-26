@@ -1,2 +1,3 @@
 #!/bin/bash
-dpctl dump-flows tcp:127.0.0.1:6634
+dp=$(sudo ovs-dpctl dump-dps | head -1)
+sudo ovs-dpctl dump-flows $dp

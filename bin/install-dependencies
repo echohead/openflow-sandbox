@@ -11,4 +11,4 @@ sudo apt-get install make fakeroot dkms openvswitch-switch \
                      openvswitch-datapath-dkms linux-headers-$kernel_version
 
 sudo /etc/init.d/openvswitch-switch restart
-
+sudo /etc/init.d/openvswitch-controller stop
